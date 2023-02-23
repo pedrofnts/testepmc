@@ -1,3 +1,4 @@
+import { Character } from "./characters.interface";
 import axios from "axios";
 
 export class CharacterRepository {
@@ -22,6 +23,6 @@ export class CharacterRepository {
       );
       allCharacters.push(...nextCharacters.data.results);
     }
-    return allCharacters;
+    return allCharacters.map((character: Character) => character.name);
   }
 }
